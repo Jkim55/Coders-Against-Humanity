@@ -1,0 +1,6 @@
+framework module Pods_Coders_Against_HumanityUITests {
+  umbrella header "Pods-Coders-Against-HumanityUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
