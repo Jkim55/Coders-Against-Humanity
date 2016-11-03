@@ -21,8 +21,7 @@ class WinnerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let voteCountString = "\(voteCount)"
-        numOfVotes.text = voteCountString
+        numOfVotes.text = String(voteCount)
         winnerCard(whiteCard: whiteCardContent, blackCard: blackCardContent)
         blackCard.text = finalCardContent
     }

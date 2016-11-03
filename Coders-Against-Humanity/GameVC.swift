@@ -29,11 +29,6 @@ class GameVC: UIViewController {
     var blackCounter = Int()
     var whiteCounter = Int()
     
-    //PLAYGROUNG VARIABLES
-    // TEMP VARIABLES: to log results from button click
-    @IBOutlet weak var pickedCardText: UILabel!
-    @IBOutlet weak var pickedCardTag: UILabel!
-    
     //TO DO: a function to capitalize white cards
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +41,6 @@ class GameVC: UIViewController {
                 whiteCardsContent: selectedWhiteCards
             )
         dealCards()
-        print("IN GAME VC", whiteCardsArray)
     }
 
     func dealCards () {
@@ -63,14 +57,13 @@ class GameVC: UIViewController {
         }
     }
     
-    //PLAYGROUND: to see what i can do with UIBUTTON arg and .tag property
+    //FUNCTION: load white cards into buttons & set segue to Vote VC
      func addIBAction(_ sender: UIButton!) {
         selectedWhiteCard = sender.currentTitle!
         performSegue(withIdentifier: "VoteSegue", sender: sender)
     }
     
     func dealBlackCard() {
-        print(blackCardsArray)
         selectedBlackCard = blackCardsArray[blackCounter]
         blackCounter += 1
     }
