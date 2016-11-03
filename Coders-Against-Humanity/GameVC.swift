@@ -51,22 +51,22 @@ class GameVC: UIViewController {
 
     func dealCards () {
         blackCard.text = cards.blackCardContent
+        
         for i in 0..<whiteCards.count{
             whiteCards[i].setTitle(
                 cards.whiteCardsContent[i],
                 for: UIControlState.normal
             )
-        whiteCards[i].tag = i + 1
-        whiteCards[i].addTarget(self, action: #selector(self.Hicard1), for: UIControlEvents.touchUpInside)
+            whiteCards[i].tag = i + 1
+            whiteCards[i].addTarget(self, action: #selector(self.addIBAction), for: UIControlEvents.touchUpInside)
+            
         }
     }
     
     //PLAYGROUND: to see what i can do with UIBUTTON arg and .tag property
-     func Hicard1(_ sender: UIButton!) {
-//        let formattedtag = "\(sender.tag)"
-//        pickedCardTag.text = formattedtag
-//        pickedCardText.text = sender.currentTitle
+     func addIBAction(_ sender: UIButton!) {
         selectedWhiteCard = sender.currentTitle!
+        performSegue(withIdentifier: "VoteSegue", sender: sender)
     }
     
     func dealBlackCard() {

@@ -25,7 +25,6 @@ class WinnerVC: UIViewController {
         numOfVotes.text = voteCountString
         winnerCard(whiteCard: whiteCardContent, blackCard: blackCardContent)
         blackCard.text = finalCardContent
-        whiteCard.text = finalCardContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +36,6 @@ class WinnerVC: UIViewController {
         var blackCardSplit = blackCard.components(separatedBy: "_")
         if blackCardSplit.count > 1 {
             finalCardContent = blackCardSplit.joined(separator: whiteCard)
-//            print(finalCardContent)
         }
         else {
             finalCardContent = blackCardSplit[0] + " " + whiteCard
