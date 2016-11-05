@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B410A8BE1DC8FEB200FEB7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410A8BD1DC8FEB200FEB7AA /* AppDelegate.swift */; };
 		B410A8C01DC8FEB200FEB7AA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410A8BF1DC8FEB200FEB7AA /* LoginVC.swift */; };
-		B410A8C31DC8FEB200FEB7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410A8C11DC8FEB200FEB7AA /* Main.storyboard */; };
+		B410A8C31DC8FEB200FEB7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410A8C11DC8FEB200FEB7AA /* Main.storyboard */; settings = {ASSET_TAGS = (Hillary, ); }; };
 		B410A8C51DC8FEB200FEB7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B410A8C41DC8FEB200FEB7AA /* Assets.xcassets */; };
 		B410A8C81DC8FEB200FEB7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410A8C61DC8FEB200FEB7AA /* LaunchScreen.storyboard */; };
 		B410A8D31DC8FEB200FEB7AA /* Coders_Against_HumanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410A8D21DC8FEB200FEB7AA /* Coders_Against_HumanityTests.swift */; };
@@ -17,6 +17,7 @@
 		B49840DD1DC93D7200F5E167 /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49840DC1DC93D7200F5E167 /* VoteVC.swift */; };
 		B4B40BD21DCA70890027E434 /* WaitingRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B40BD11DCA70890027E434 /* WaitingRoomVC.swift */; };
 		B4E40EE91DC9563B00671DB1 /* WinnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E40EE81DC9563B00671DB1 /* WinnerVC.swift */; };
+		C1FCB1A81DCBC935003AE285 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCB1A71DCBC935003AE285 /* DataStruct.swift */; };
 		D817D9A11DCA22FD00DF681E /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817D9891DCA22FD00DF681E /* SocketAckEmitter.swift */; };
 		D817D9A21DCA22FD00DF681E /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817D98A1DCA22FD00DF681E /* SocketAckManager.swift */; };
 		D817D9A31DCA22FD00DF681E /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817D98B1DCA22FD00DF681E /* SocketAnyEvent.swift */; };
@@ -90,6 +91,7 @@
 		B49840DC1DC93D7200F5E167 /* VoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		B4B40BD11DCA70890027E434 /* WaitingRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaitingRoomVC.swift; path = ../Source/WaitingRoomVC.swift; sourceTree = "<group>"; };
 		B4E40EE81DC9563B00671DB1 /* WinnerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerVC.swift; sourceTree = "<group>"; };
+		C1FCB1A71DCBC935003AE285 /* DataStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		C8B5B9A9660AAE93073D38A0 /* Pods-Coders-Against-Humanity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coders-Against-Humanity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coders-Against-Humanity/Pods-Coders-Against-Humanity.release.xcconfig"; sourceTree = "<group>"; };
 		D817D9891DCA22FD00DF681E /* SocketAckEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckEmitter.swift; sourceTree = "<group>"; };
 		D817D98A1DCA22FD00DF681E /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckManager.swift; sourceTree = "<group>"; };
@@ -200,19 +202,16 @@
 		B410A8BC1DC8FEB200FEB7AA /* Coders-Against-Humanity */ = {
 			isa = PBXGroup;
 			children = (
+				C1FCB1A61DCBC901003AE285 /* DataStruct */,
 				F7211DB61DCA765D006AF5F4 /* Controllers */,
 				B410A8BD1DC8FEB200FEB7AA /* AppDelegate.swift */,
 				D817D9B91DCA231D00DF681E /* SocketIOManager.swift */,
-				B49840DC1DC93D7200F5E167 /* VoteVC.swift */,
 				D88648671DC9295D007EC9B1 /* InstructionVC.swift */,
-				B410A8BF1DC8FEB200FEB7AA /* LoginVC.swift */,
-				B4B40BD11DCA70890027E434 /* WaitingRoomVC.swift */,
 				B410A8C11DC8FEB200FEB7AA /* Main.storyboard */,
 				B410A8C41DC8FEB200FEB7AA /* Assets.xcassets */,
 				B410A8C61DC8FEB200FEB7AA /* LaunchScreen.storyboard */,
 				B410A8C91DC8FEB200FEB7AA /* Info.plist */,
-				D8247E0B1DC92C230012B2D5 /* GameVC.swift */,
-				B4E40EE81DC9563B00671DB1 /* WinnerVC.swift */,
+				C1FCB1A91DCBD2A6003AE285 /* ViewControllers */,
 			);
 			path = "Coders-Against-Humanity";
 			sourceTree = "<group>";
@@ -233,6 +232,26 @@
 				B410A8DF1DC8FEB200FEB7AA /* Info.plist */,
 			);
 			path = "Coders-Against-HumanityUITests";
+			sourceTree = "<group>";
+		};
+		C1FCB1A61DCBC901003AE285 /* DataStruct */ = {
+			isa = PBXGroup;
+			children = (
+				C1FCB1A71DCBC935003AE285 /* DataStruct.swift */,
+			);
+			name = DataStruct;
+			sourceTree = "<group>";
+		};
+		C1FCB1A91DCBD2A6003AE285 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B410A8BF1DC8FEB200FEB7AA /* LoginVC.swift */,
+				B49840DC1DC93D7200F5E167 /* VoteVC.swift */,
+				B4B40BD11DCA70890027E434 /* WaitingRoomVC.swift */,
+				D8247E0B1DC92C230012B2D5 /* GameVC.swift */,
+				B4E40EE81DC9563B00671DB1 /* WinnerVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		D817D9881DCA22FD00DF681E /* Source */ = {
@@ -345,6 +364,9 @@
 		B410A8B21DC8FEB200FEB7AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Hillary,
+				);
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Ji;
@@ -573,6 +595,7 @@
 				D817D9B21DCA22FD00DF681E /* SocketLogger.swift in Sources */,
 				D817D9BA1DCA231D00DF681E /* SocketIOManager.swift in Sources */,
 				D817D9B51DCA22FD00DF681E /* SocketStringReader.swift in Sources */,
+				C1FCB1A81DCBC935003AE285 /* DataStruct.swift in Sources */,
 				D817D9B31DCA22FD00DF681E /* SocketPacket.swift in Sources */,
 				D817D9A71DCA22FD00DF681E /* SocketEnginePacketType.swift in Sources */,
 				D817D9B81DCA22FD00DF681E /* WebSocket.swift in Sources */,

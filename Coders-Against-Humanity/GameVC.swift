@@ -16,34 +16,34 @@ struct Cards {
 
 // CLASS: GAME VC
 class GameVC: UIViewController {
+    
     @IBOutlet weak var blackCard: UITextView!
     @IBOutlet var whiteCards: [UIButton]!
     
     //VARIABLES: used within view
     var cards = Cards()
-    var selectedWhiteCard = String()
-    var blackCardsArray = [String]()
-    var whiteCardsArray = [String]()
-    var selectedBlackCard = String()
-    var selectedWhiteCards = [String]()
-    var blackCounter = Int()
-    var whiteCounter = Int()
+    
+    //PLAYGROUNG VARIABLES
+    // TEMP VARIABLES: to log results from button click
+    @IBOutlet weak var pickedCardText: UILabel!
+    @IBOutlet weak var pickedCardTag: UILabel!
     
     //TO DO: a function to capitalize white cards
     override func viewDidLoad() {
         super.viewDidLoad()
         dealBlackCard()
         dealWhiteCards()
+        pickRandomCards()
         //Injecting in black & white card text
         cards = 
             Cards(
-                blackCardContent: selectedBlackCard,
-                whiteCardsContent: selectedWhiteCards
+                blackCardContent: Information.Cards.currentBlackCard,
+                whiteCardsContent: Information.Cards.playersCards
             )
-        dealCards()
+        displayCards()
     }
 
-    func dealCards () {
+    func displayCards () {
         blackCard.text = cards.blackCardContent
         
         for i in 0..<whiteCards.count{
@@ -57,32 +57,59 @@ class GameVC: UIViewController {
         }
     }
     
-    //FUNCTION: load white cards into buttons & set segue to Vote VC
-     func addIBAction(_ sender: UIButton!) {
-        selectedWhiteCard = sender.currentTitle!
+    func addIBAction(_ sender: UIButton!) {
+        Information.Cards.selectedWhiteCard = sender.currentTitle!
+        Information.Cards.choicesArray.append(sender.currentTitle!)
+        if let index = Information.Cards.playersCards.index(of: sender.currentTitle!) {
+            Information.Cards.playersCards.remove(at: index)
+        }
         performSegue(withIdentifier: "VoteSegue", sender: sender)
     }
     
     func dealBlackCard() {
-        selectedBlackCard = blackCardsArray[blackCounter]
-        blackCounter += 1
+        let randomIndex = Int(arc4random_uniform(UInt32(Information.Cards.blackCards.count - 1)))
+        
+        Information.Cards.currentBlackCard = Information.Cards.blackCards[randomIndex]
+        Information.Cards.blackCounter += 1
     }
 
     func dealWhiteCards() {
-        var whiteCards = [String]()
-        for _ in 0...6{
-            whiteCards.append(whiteCardsArray[whiteCounter])
-            whiteCounter += 1
+        
+        var nextCard = String()
+        var randomCardIndex = Int()
+        
+        if Information.Cards.playersCards.count == 0 {
+            var whiteCards = [String]()
+            for _ in 0...6{
+                randomCardIndex = Int(arc4random_uniform(UInt32(Information.Cards.whiteCards.count)))
+                nextCard = Information.Cards.whiteCards[randomCardIndex]
+                whiteCards.append(nextCard)
+                Information.Cards.whiteCounter += 1
+            }
+            Information.Cards.playersCards = whiteCards
+        } else {
+            randomCardIndex = Int(arc4random_uniform(UInt32(Information.Cards.whiteCards.count)))
+            nextCard = Information.Cards.whiteCards[randomCardIndex]
+            Information.Cards.playersCards.append(nextCard)
+            Information.Cards.whiteCounter += 1
         }
-        selectedWhiteCards = whiteCards
+        
+        
     }
     
-    
-    // FUNCTION: Send data thru segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let voteVC : VoteVC = segue.destination as! VoteVC
-        voteVC.blackCardContent = cards.blackCardContent
-        voteVC.player1CardContent = selectedWhiteCard
+    func pickRandomCards() {
+        
+        var nextCard = String()
+        var randomCardIndex = Int()
+        var cardArray = [String]()
+        
+        for _ in 1...3 {
+            randomCardIndex = Int(arc4random_uniform(UInt32(Information.Cards.whiteCards.count)))
+            nextCard = Information.Cards.whiteCards[randomCardIndex]
+            cardArray.append(nextCard)
+        }
+        
+        Information.Cards.choicesArray = cardArray
     }
     
     //ACTION: Return to login page

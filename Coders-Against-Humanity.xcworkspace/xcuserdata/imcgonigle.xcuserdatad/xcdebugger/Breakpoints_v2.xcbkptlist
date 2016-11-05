@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   type = "1"
+   type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Coders-Against-Humanity/GameVC.swift"
-            timestampString = "499807209.273381"
+            filePath = "Coders-Against-Humanity/WinnerVC.swift"
+            timestampString = "499913882.194381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "dealCards()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "updateScore(winner:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

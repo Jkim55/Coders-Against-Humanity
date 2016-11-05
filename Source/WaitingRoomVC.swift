@@ -9,13 +9,10 @@
 import Foundation
 import UIKit
 import SwiftyJSON
-import Alamofire
 
 class WaitingRoomVC: UIViewController {
     // VARIABLES: To hold data returned from API
     let apiUrl = "https://jsonagainsthumanity.herokuapp.com/"
-    var blackCards = [String]()
-    var whiteCards = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +27,29 @@ class WaitingRoomVC: UIViewController {
             let text = card["text"].string
             
             if card["pick"] == 1 {
-                self.blackCards.append(text!)
+                Information.Cards.blackCards.append(text!)
             }
         }
         for i in 0..<json["whiteCards"].count {
             
             let text = json["whiteCards"][i].string
-            self.whiteCards.append(text!)
+            Information.Cards.whiteCards.append(text!)
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gameVC : GameVC = segue.destination as! GameVC
-        gameVC.blackCardsArray = blackCards
-        gameVC.whiteCardsArray = whiteCards
+    // MARK: Actions
+    
+    
+    @IBAction func PlayAsBush(_ sender: UIButton) {
+        Information.Players.name = "Bush"
     }
+    
+    @IBAction func UsernameTextField(_ sender: AnyObject) {
+        Information.Players.name = sender.text
+        performSegue(withIdentifier: "GameViewSegue", sender: sender)
+    }
+    
+    
 }
 
 
